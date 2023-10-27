@@ -1,0 +1,34 @@
+# Inicializamos el resultado con el primer número ingresado
+Resultado = float(input("Ingrese un número: "))
+
+while True:
+    Operador = input("Ingrese operación o '=' para finalizar: ")
+
+    # Si el usuario ingresa '=', terminamos el bucle
+    if Operador == '=':
+        break
+
+    # Si el usuario no ingresa un operador válido, mostramos un mensaje de error y seguimos con la próxima iteración
+    if Operador not in ['+', '-', '*', '/']:
+        print("Operador no válido. Intente + - * /")
+        continue
+
+    # Si el usuario ingresa un operador válido, solicitamos el siguiente número
+    Digito = float(input("Ingrese un número: "))
+
+    # Realizamos la operación correspondiente
+    if Operador == '+':
+        Resultado += Digito
+    elif Operador == '-':
+        Resultado -= Digito
+    elif Operador == '*':
+        Resultado *= Digito
+    elif Operador == '/':
+        # Manejamos la división por cero
+        if Digito == 0:
+            print("Error: División por cero.")
+            break
+        Resultado /= Digito
+
+# Imprimimos el resultado final
+print("Resultado:", Resultado)
